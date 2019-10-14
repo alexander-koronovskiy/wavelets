@@ -1,41 +1,35 @@
-import matplotlib.pyplot as plt
-import WorkWFiles
-from tkinter import messagebox as mb
-
-ORDER = 2
+import numpy as np
+import math
 
 
-def haarFWT(signal, level):
-    s = .5                 # scaling -- try 1 or ( 2 ** .5 )
-    h = [1,  1]          # lowpass filter
-    g = [1, -1]          # highpass filter
-    f = len(h)           # length of the filter
-    t = signal              # 'workspace' array
-    l = len(t)              # length of the current signal
-    y = [0] * l             # initialise output
-    t = t + [0, 0]        # padding for the workspace
+def HaarMatrices(n):
+    # check input parameter and make sure it's the power of 2
+    Level1 = math.log(n, 2)
+    Level = int(Level1)+1
 
-    for i in range(level):
-        y[0:l] = [0] * l    # initialise the next level
-        l2 = l // 2         # half approximation, half detail
-        for j in range(l2):
-            for k in range(f):
-                y[j] += t[2*j + k] * h[k] * s
-                y[j+l2] += t[2*j + k] * g[k] * s
-        l = l2             # continue with the approximation
-        t[0:l] = y[0:l]
-    return y
+    #Initialization
+    H = [1]
+    NC = 1 / math.sqrt(2)    #normalization constant
+    LP = [1, 1]
+    HP = [1, -1]
+
+    for i in range(1, Level):
+        H = np.dot(NC, np.concatenate([np.matrix(np.kron(H, LP)), np.matrix(np.kron(np.eye(len(H)), HP))]))
+    return H
 
 
 def main():
-    s0 = [56, 40, 8, 24, 48, 48, 40, 16]
-    # plt.plot(s0)
-    s1 = haarFWT(s0, ORDER)
-    # plt.plot(s1)
-    # plt.plot((haarFWT(s1, ORDER)))
-    # plt.title('haar order=' + str(ORDER))
-    # plt.show()
-    print(s0); print(s1); print(haarFWT(s1, ORDER))
+    x = [1, 2, 3, 4, 5, 6, 7, 8]
+    n = len(x)
+    H = HaarMatrices(n)
+
+    # haar transformation
+    y = H.dot(x)
+    print(y)
+
+    # haar inverse transform
+    x1 = H.transpose().dot(y.transpose())
+    print(x1.transpose())
 
 
 if __name__ == "__main__":
