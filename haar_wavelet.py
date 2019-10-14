@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import WorkWFiles
 from tkinter import messagebox as mb
 
-ORDER = 1
+ORDER = 2
 
 
 def haarFWT(signal, level):
@@ -28,11 +28,14 @@ def haarFWT(signal, level):
 
 
 def main():
-    s0 = WorkWFiles.write_to_list('solution.dat')[4000:5000]
-    plt.plot(s0)
-    plt.plot((haarFWT(s0, ORDER)))
-    plt.title('haar order=' + str(ORDER))
-    plt.show()
+    s0 = [56, 40, 8, 24, 48, 48, 40, 16]
+    # plt.plot(s0)
+    s1 = haarFWT(s0, ORDER)
+    # plt.plot(s1)
+    # plt.plot((haarFWT(s1, ORDER)))
+    # plt.title('haar order=' + str(ORDER))
+    # plt.show()
+    print(s0); print(s1); print(haarFWT(s1, ORDER))
 
 
 if __name__ == "__main__":
