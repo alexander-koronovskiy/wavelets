@@ -1,5 +1,6 @@
 import numpy as np
 import math
+import pywt
 
 
 # calculating HAAR matrices for linear array
@@ -20,6 +21,20 @@ def HaarMatrices(n):
         H = np.dot(NC, np.concatenate([np.matrix(np.kron(H, LP)), np.matrix(np.kron(np.eye(len(H)), HP))]))
 
     return H
+
+
+# application method (1) for linear array
+def HaarMatriciesExample(x):
+    n = len(x)
+    H = HaarMatrices(n)
+
+    # haar transformation
+    y = H.dot(x)
+    print(y)
+
+    # haar inverse transform
+    x1 = H.transpose().dot(y.transpose())
+    print(x1.transpose())
 
 
 # application HAAR-Transform Wavelet for "signal" array
@@ -63,43 +78,55 @@ def haarFWT(signal, level):
     return y
 
 
-# application method (1) for linear array
-def HaarMatriciesExample(x):
-    n = len(x)
-    H = HaarMatrices(n)
-
-    # haar transformation
-    y = H.dot(x)
-    print(y)
-
-    # haar inverse transform
-    x1 = H.transpose().dot(y.transpose())
-    print(x1.transpose())
-
-
 # application method (2) for linear array
 def haarFWTExample(s0):
-
-    print("level 0")
     print(s0)
-
-    print("level 1")
     print(haarFWT(s0, 1))
-
-    print("level 2")
     print(haarFWT(s0, 2))
-
-    print("level 3")
     print(haarFWT(s0, 3))
+
+
+# application HWT method (3) for the simpliest way to use
+def discreteHaarWaveletTransform(x):
+    N = len(x)
+    output = [0.0]*N
+    length = N >> 1
+
+    # Swap arrays to do next iteration
+    # System.arraycopy(output, 0, x, 0, length << 1)
+    while True:
+        for i in range(0,length):
+            summ = x[i * 2] + x[i * 2 + 1]
+            difference = x[i * 2] - x[i * 2 + 1]
+            output[i] = summ
+            output[length + i] = difference
+
+        if length == 1:
+            return output
+
+        x = output[:length << 1]
+        length >>= 1
 
 
 # main method - comparison the result of different methods
 def main():
+
+    # input array
     x = [1, -14, 28, 49, 5, 6, 7, 8]
+
+    # method (1)
     HaarMatriciesExample(x)
 
-    # i'm think, it doesen't work correct
-    # haarFWTExample(x)
+    # method (2); i'm think, it doesen't work correct
+    haarFWTExample(x)
+
+    # method (3)
+    res = discreteHaarWaveletTransform(x)
+    print(res)
+
+    # py lib method application: WTF it doesn't work?!
+    # cA, cD = pywt.dwt(x, 'db2')
+    # print(cA, cD)
 
 
 if __name__ == "__main__":
