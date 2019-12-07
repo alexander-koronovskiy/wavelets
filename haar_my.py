@@ -1,6 +1,5 @@
 import numpy as np
 import math
-import pywt
 
 
 # calculating HAAR matrices for linear array
@@ -19,115 +18,40 @@ def HaarMatrices(n):
     # The core of the calculation; H - the result matrix
     for i in range(1, Level):
         H = np.dot(NC, np.concatenate([np.matrix(np.kron(H, LP)), np.matrix(np.kron(np.eye(len(H)), HP))]))
+    H = np.array(H)
 
     return H
 
 
-# application method (1) for linear array
-def HaarMatriciesExample(x):
-    n = len(x)
+# haar transform
+def haar_1d(n, x):
+
+    # calculating of haar matrices
     H = HaarMatrices(n)
 
-    # haar transformation
+    # new dimension of input parameters // 2
+    x = x[0:len(H)]
+    n = len(H)
+
+    # the way of calculate HWT
     y = H.dot(x)
-    print(y)
-
-    # haar inverse transform
-    x1 = H.transpose().dot(y.transpose())
-    print(x1.transpose())
-
-
-# application HAAR-Transform Wavelet for "signal" array
-def haarFWT(signal, level):
-
-    # scaling -- try 1 or ( 2 ** .5 )
-    s = .5
-
-    # h - lowpass filter
-    # g - highpass filter
-    # f - length of the filter
-    h = [1,  1]
-    g = [1, -1]
-    f = len(h)
-
-    # t - 'workspace' array
-    # l - length of the current signal
-    # y - initialise output
-    t = signal
-    l = len(t)
-    y = [0] * l
-
-    # padding for the workspace
-    t = t + [0, 0]
-
-    # y - initialise the next level
-    # l2 - half approximation, half detail
-    for i in range(level):
-        y[0:l] = [0] * l
-        l2 = l // 2
-
-        for j in range(l2):
-            for k in range(f):
-                y[j] += t[2*j + k] * h[k] * s
-                y[j+l2] += t[2*j + k] * g[k] * s
-
-        # continue with the approximation
-        l = l2
-        t[0:l] = y[0:l]
+    y = np.array(y)
 
     return y
 
 
-# application method (2) for linear array
-def haarFWTExample(s0):
-    print(s0)
-    print(haarFWT(s0, 1))
-    print(haarFWT(s0, 2))
-    print(haarFWT(s0, 3))
+# haar inverse transform
+def haar_1d_inverse(n, y):
 
+    # calculating of haar matrices
+    H = HaarMatrices(n)
 
-# application HWT method (3) for the simpliest way to use
-def discreteHaarWaveletTransform(x):
-    N = len(x)
-    output = [0.0]*N
-    length = N >> 1
+    # new dimension of input parameters // 2
+    y = y[0:len(H)]
+    n = len(H)
 
-    # Swap arrays to do next iteration
-    # System.arraycopy(output, 0, x, 0, length << 1)
-    while True:
-        for i in range(0,length):
-            summ = x[i * 2] + x[i * 2 + 1]
-            difference = x[i * 2] - x[i * 2 + 1]
-            output[i] = summ
-            output[length + i] = difference
+    # the way of calculate inverse HWT
+    x1 = H.transpose().dot(y.transpose())
+    x1 = np.array(x1)
 
-        if length == 1:
-            return output
-
-        x = output[:length << 1]
-        length >>= 1
-
-
-# main method - comparison the result of different methods
-def main():
-
-    # input array
-    x = [1, -14, 28, 49, 5, 6, 7, 8]
-
-    # method (1)
-    HaarMatriciesExample(x)
-
-    # method (2); i'm think, it doesen't work correct
-    haarFWTExample(x)
-
-    # method (3)
-    res = discreteHaarWaveletTransform(x)
-    print(res)
-
-    # py lib method application: WTF it doesn't work?!
-    # cA, cD = pywt.dwt(x, 'db2')
-    # print(cA, cD)
-
-
-if __name__ == "__main__":
-    main()
+    return x1.transpose()

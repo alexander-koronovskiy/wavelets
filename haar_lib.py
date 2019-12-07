@@ -1168,9 +1168,3 @@ def haar_test():
   print ( 'HAAR_TEST' )
   print ( '  Normal end of execution.' )
   return
-
-
-if(__name__ == '__main__'):
-  timestamp()
-  haar_test()
-  timestamp()
