@@ -7,14 +7,24 @@ def linear(n=ITER):
     return np.linspace(1, n, n)
 
 
+# linear signal with noise
+def linear_w_noise(n):
+    pure = np.linspace(-1, 1, n)
+    noise = np.random.normal(0, 1, pure.shape)
+    return pure + noise
+
+
 # constant signal
 def constant(n=ITER):
     return np.ones(n)
 
 
 # quadratic signal
-def quadratic():
-    return np.array([25.0, 16.0,  9.0,  4.0,  1.0, 0.0,  1.0,  4.0])
+def quadratic(n=ITER):
+    arr = []
+    for i in range(n):
+        arr.append((i + 2)**2 - 3)
+    return arr
 
 
 # white noise signal
