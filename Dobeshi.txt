@@ -1,5 +1,5 @@
-load data/quadratic.txt
-S = quadratic
+load data/linear_w_noise.txt
+S = linear_w_noise
 N = length(S);
 s1 = S(1:2:N-1) + sqrt(3)*S(2:2:N);
 d1 = S(2:2:N) - sqrt(3)/4*s1 - (sqrt(3)-2)/4*[s1(N/2); s1(1:N/2-1)];

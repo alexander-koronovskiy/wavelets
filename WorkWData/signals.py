@@ -8,8 +8,8 @@ def linear(n=ITER):
 
 
 # linear signal with noise
-def linear_w_noise(n):
-    pure = np.linspace(-1, 1, n)
+def linear_w_noise(n=128):
+    pure = np.linspace(-1, n // 10, n)
     noise = np.random.normal(0, 1, pure.shape)
     return pure + noise
 

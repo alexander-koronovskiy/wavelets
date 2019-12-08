@@ -2,17 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c5bc5e3a-3c25-460e-b182-3511d4f5d0b2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signals/linear_DobWT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signals/linear_invDobWt.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signals/quadratic_DobWT.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/signals/quadratic_invDobWT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/kalman_filtr.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pics/adaptive_filtration.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pics/adaptive_func.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pics/linear_w_noise_DobWT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pics/nonlinear_w_noise_DobWT.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signals/adaptive_func_w_noise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signals/adaptive_func_w_noise_inv.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signals/adaptive_func_w_noise_wt.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signals/linear_w_noise.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signals/linear_w_noise_DobWT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signals/linear_w_noise_DobWT_all.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signals/linear_w_noise_invDobWT.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/signals/nonlinear_w_noise_DobWT_all.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dobeshi.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Dobeshi.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WorkWData/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/WorkWData/signals.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.py" beforeDir="false" afterPath="$PROJECT_DIR$/index.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pics/quadratic_haar.png" beforeDir="false" afterPath="$PROJECT_DIR$/pics/quadratic_haar.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/constant_haar.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/linear_haar.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/quadratic_haar.txt" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,13 +28,26 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+            <state relative-caret-position="259">
+              <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="68" />
               <folding>
-                <element signature="e#0#38#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#127#370#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/kalman_filtr.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+              <folding>
+                <element signature="e#35#66#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -37,24 +56,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WorkWData/signals.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+            <state relative-caret-position="250">
+              <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dobeshi.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/signals/linear.txt">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -78,13 +83,19 @@
         <option value="$PROJECT_DIR$/signals/linear_DobWT.txt" />
         <option value="$PROJECT_DIR$/signals/linear_invDobWt.txt" />
         <option value="$PROJECT_DIR$/WorkWData/output_res.py" />
+        <option value="$PROJECT_DIR$/signals/linear_w_noise_DobWT.txt" />
+        <option value="$PROJECT_DIR$/signals/linear_w_noise_invDobWT.txt" />
         <option value="$PROJECT_DIR$/Dobeshi.txt" />
-        <option value="$PROJECT_DIR$/index.py" />
+        <option value="$PROJECT_DIR$/signals/adaptive_func_w_noise_wt.txt" />
+        <option value="$PROJECT_DIR$/signals/adaptive_func_w_noise_inv.txt" />
+        <option value="$PROJECT_DIR$/kalman.py" />
         <option value="$PROJECT_DIR$/WorkWData/signals.py" />
+        <option value="$PROJECT_DIR$/index.py" />
+        <option value="$PROJECT_DIR$/kalman_filtr.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="750" />
     <option name="y" value="65" />
     <option name="width" value="1155" />
@@ -102,16 +113,6 @@
               <item name="вейвлеты" type="b2602c69:ProjectViewProjectNode" />
               <item name="вейвлеты" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="вейвлеты" type="b2602c69:ProjectViewProjectNode" />
-              <item name="вейвлеты" type="462c0819:PsiDirectoryNode" />
-              <item name="signals" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="вейвлеты" type="b2602c69:ProjectViewProjectNode" />
-              <item name="вейвлеты" type="462c0819:PsiDirectoryNode" />
-              <item name="WorkWData" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -120,7 +121,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/index.py" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/kalman_filtr.py" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -134,7 +135,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.kalman_filtr">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <module name="вейвлеты" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -177,6 +178,31 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="kalman_filtr" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="вейвлеты" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\Alexander\Anaconda3\envs\sync\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/kalman_filtr.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.index" />
+      <item itemvalue="Python.kalman_filtr" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -195,12 +221,12 @@
     <frame x="-7" y="-7" width="1550" height="840" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1526768" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1526768" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34887007" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2838983" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -257,16 +283,6 @@
     <entry file="file://$PROJECT_DIR$/signals/constant_invDobWT.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/WorkWData/output_res.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/signals/quadratic_DobWT.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -281,29 +297,91 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dobeshi.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="18" lean-forward="true" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/signals/linear.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/WorkWData/output_res.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signals/linear_w_noise_invDobWT.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="8" column="10" lean-forward="true" selection-start-line="8" selection-start-column="10" selection-end-line="8" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signals/linear_w_noise_DobWT.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signals/adaptive_func_w_noise_wt.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6225">
+          <caret line="249" column="10" selection-start-line="249" selection-start-column="10" selection-end-line="249" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signals/adaptive_func_w_noise_inv.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/signals/adaptive_func_w_noise.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="435" selection-start-line="435" selection-end-line="435" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Dobeshi.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="10" selection-end-line="17" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WorkWData/signals.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        <state relative-caret-position="250">
+          <caret line="10" column="4" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kalman.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding>
+            <element signature="e#35#66#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        <state relative-caret-position="259">
+          <caret line="21" column="4" lean-forward="true" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="68" />
           <folding>
-            <element signature="e#0#38#0" expanded="true" />
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#127#370#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/kalman_filtr.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="34" column="52" selection-start-line="34" selection-start-column="52" selection-end-line="34" selection-end-column="52" />
+          <folding>
+            <element signature="e#35#66#0" expanded="true" />
           </folding>
         </state>
       </provider>
